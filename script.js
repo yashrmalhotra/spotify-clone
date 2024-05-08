@@ -18,7 +18,7 @@ function sectomin(seconds) {
 async function getsongs(folder) {
     try {
         currfolder = folder
-        let response = await fetch(`https://github.com/yashrmalhotra/spotify-clone/tree/main/songs/${folder}`);
+        let response = await fetch(`songs/${folder}`);
     
         let html = await response.text();
 
@@ -80,7 +80,7 @@ const playMusic = (track, pause) => {
 
 }
 async function displayAlbums() {
-    let response = await fetch("https://github.com/yashrmalhotra/spotify-clone/tree/main/songs/")
+    let response = await fetch("songs/")
     let html = await response.text()
 
     let div = document.createElement("div")
@@ -96,7 +96,7 @@ async function displayAlbums() {
            
             let folder = e.href.split("songs/")[1]
 
-            let info = await fetch(`https://github.com/yashrmalhotra/spotify-clone/tree/main/songs/${folder}/info.json`)
+            let info = await fetch(`songs/${folder}/info.json`)
 
             let data = await info.json()
 
