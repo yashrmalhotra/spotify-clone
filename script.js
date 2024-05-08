@@ -80,7 +80,7 @@ const playMusic = (track, pause) => {
 
 }
 async function displayAlbums() {
-    let response = await fetch("/songs/")
+    let response = await fetch("http://127.0.0.1:5500/songs/")
     let html = await response.text()
 
     let div = document.createElement("div")
