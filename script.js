@@ -94,7 +94,7 @@ async function displayAlbums() {
         
         if(e.href.includes("/songs/")){
            
-            let folder = e.href.split("songs/")[1]
+            let folder = e.href.split("http://127.0.0.1:5500/songs/")[1]
 
             let info = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
 
