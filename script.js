@@ -19,8 +19,7 @@ async function getsongs(folder) {
     try {
         currfolder = folder
         let response = await fetch(`songs/${folder}`);
-      
-
+    
         let html = await response.text();
 
         let div = document.createElement('div');
@@ -42,9 +41,10 @@ async function getsongs(folder) {
         let songUl = document.querySelector(".songlist").getElementsByTagName("ul")[0]
         songUl.innerHTML = ""
         for (const song of songs) {
+            let decoded = song.replaceAll("%20", " ").split(".mp3")[0]
             songUl.innerHTML = songUl.innerHTML + `<li><img class="invert" src="headphone.svg" alt="">
             <div class="info">
-                <div style="width:100px;">${song.replaceAll("%20", " ").split(".mp3")[0]}</div>
+                <div style="width:100px;">${decoded}</div>
                 <div class="artist">Jack</div>
             </div>
            <div class="pnow">
@@ -116,7 +116,7 @@ async function displayAlbums() {
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
 
-            songs = await getsongs(`${item.currentTarget.dataset.folder}`)
+            songs = await getsongs(`${item.currentTarget.getAttribute("data-folder")}`)
       
             playMusic(songs[0])
             play.src = "pause.svg"
