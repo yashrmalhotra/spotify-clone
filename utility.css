@@ -1,0 +1,23 @@
+.flex{
+    display: flex;
+
+    box-sizing: border-box;
+  
+    
+}
+
+.border{
+    border: 2px solid red;
+    
+}
+.bgblk{
+    background: #000;
+}
+.bggry{
+    background: rgb(18, 18, 18);
+    color: white;
+}
+
+.rounded{
+    border-radius: 5px;
+}
